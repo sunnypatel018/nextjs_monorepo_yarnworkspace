@@ -1,5 +1,5 @@
 {
-    "name": "@monorepo-nextjs/library",
+    "name": "@monorepo-nextjs/library/components",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT"

@@ -1,5 +1,5 @@
 {
-    "name": "monorepo_nextjs",
+    "name": "monorepo-nextjs",
     "version": "1.0.0",
     "private": "true",
     "main": "index.js",
@@ -9,5 +9,6 @@
     ],
     "scripts": {
         "start": "yarn --cwd packages/webapp dev"
+        
     }
 }
