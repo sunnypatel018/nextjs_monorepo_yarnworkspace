@@ -1,13 +1,16 @@
 import Basic from '@monorepo-nextjs/library/components';
 import Link from 'next/link';
-import Csr from './csr';
 
 const simple = () => {
     return (
         <>
             <div>Hello World</div>
             <Basic />
-            <Csr />
+            <div>
+                <Link href='./csr'>
+                    <button>Server side rendering</button>
+                </Link>{' '}
+            </div>
         </>
     );
 };
