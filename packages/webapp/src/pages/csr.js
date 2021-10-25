@@ -75,49 +75,51 @@
 
 // -------------------------Server Side rendering using getServerSideProps --------------------------------------------------------
 
-import Link from 'next/link';
-const ToDoPage = ({ data }) => {
-    return (
-        <>
-            <div>
-                <Link href='/'>
-                    <button>Home</button>
-                </Link>
-            </div>
-            <div>
-                <h1>To Do List</h1>
-                <ul>
-                    {data.map((todo) => (
-                        <li key={todo.id}>
-                            {todo.title} -{' '}
-                            <span>
-                                ({' '}
-                                {todo.completed ? 'Completed' : 'Not Completed'}{' '}
-                                )
-                            </span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </>
-    );
-};
+// import Link from 'next/link';
+// const ToDoPage = ({ data }) => {
+//     return (
+//         <>
+//             <div>
+//                 <Link href='/'>
+//                     <button>Home</button>
+//                 </Link>
+//             </div>
+//             <div>
+//                 <h1>To Do List</h1>
+//                 <ul>
+//                     {data.map((todo) => (
+//                         <li key={todo.id}>
+//                             {todo.title} -{' '}
+//                             <span>
+//                                 ({' '}
+//                                 {todo.completed ? 'Completed' : 'Not Completed'}{' '}
+//                                 )
+//                             </span>
+//                         </li>
+//                     ))}
+//                 </ul>
+//             </div>
+//         </>
+//     );
+// };
 
-export async function getServerSideProps(context) {
-    const res = await fetch('https://jsonplaceholder.typicode.com/todos/');
-    const data = await res.json();
+// export async function getServerSideProps(context) {
+//     const res = await fetch('https://jsonplaceholder.typicode.com/todos/');
+//     const data = await res.json();
 
-    if (!data) {
-        return {
-            notFound: true,
-        };
-    }
+//     if (!data) {
+//         return {
+//             notFound: true,
+//         };
+//     }
 
-    return {
-        props: {
-            data,
-        },
-    };
-}
+//     return {
+//         props: {
+//             data,
+//         },
+//     };
+// }
 
-export default ToDoPage;
+// export default ToDoPage;
+
+// -------------------------Server Side rendering using getServerSideProps and used graphql for api request --------------------------------------------------------
