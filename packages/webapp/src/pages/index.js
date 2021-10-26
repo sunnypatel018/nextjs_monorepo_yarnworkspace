@@ -3,31 +3,34 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setName } from '../../redux/actions/action';
+import { setCityName } from '../redux/actions/action';
 
 
 const simple = (props) => {
 
-    const {name, setName} = props;
-    const [newName, setNewName] = useState('')
+    console.log(props);
+    const {cityName, setCityName} = props;
+    const [newCityName, setNewCityName] = useState('')
 
     return (
         <>
-            {/* <div>Hello World</div>
-            <Basic />
+        
             <div>
-                <Link href='./csr'>
-                    <button>Server side rendering</button>
-                </Link>{' '}
-            </div> */}
-            <div>
-                <p>Enter a Name {name}</p>
-                <input
-                    type='text'
-                    value={newName}
-                    onChange={(e) => setNewName(e.target.value)}
-                ></input>
-                <button onClick={() => setName(newName)}>Submit</button>
+                <h1>Enter the city Name to check the weather:-</h1>
+
+                <div>
+                    <input name="cityName"  placeholder="Enter city name" value={newCityName} onChange={(e)=> setNewCityName(e.target.value)} />
+                    <button onClick={() => setCityName(newCityName)} >Search</button>
+                </div> 
+
+                <p>Weather of:- {cityName} </p>
+                <h2> {props.data ?props.data.getCityByName.name : null}</h2>
+                <h2> {props.data ?props.data.getCityByName.country : null}</h2>
+                <h2> {props.data ?props.data.getCityByName.weather.summary.description : null}</h2>
+                <h2> {props.data ?props.data.getCityByName.weather.temperature.actual : null}</h2>
+                
+
+        
             </div>
         </>
     );
@@ -35,10 +38,10 @@ const simple = (props) => {
 
 const mapStateToProps = state =>{
     return{
-        name:state.main.name
+        data:state.main.data
     }
 }
 
-const mapDispatchToProps =(dispatch)=> bindActionCreators({setName}, dispatch)
+const mapDispatchToProps =(dispatch)=> bindActionCreators( {setCityName}, dispatch)
 
 export default connect(mapStateToProps,mapDispatchToProps)(simple);

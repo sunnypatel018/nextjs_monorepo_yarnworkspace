@@ -1,0 +1,2 @@
+export const SET_CITY_NAME = 'SET_CITY_NAME';
+export const SET_CITY_NAME_SUCCESS = 'SET_CITY_NAME_SUCCESS';
