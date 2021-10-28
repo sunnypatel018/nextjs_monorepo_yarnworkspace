@@ -23,7 +23,7 @@ const simple = (props) => {
                     <button onClick={() => setCityName(newCityName)} >Search</button>
                 </div> 
 
-                <p>Weather of:- {cityName} </p>
+                
                 <h2> {props.data ?props.data.getCityByName.name : null}</h2>
                 <h2> {props.data ?props.data.getCityByName.country : null}</h2>
                 <h2> {props.data ?props.data.getCityByName.weather.summary.description : null}</h2>
