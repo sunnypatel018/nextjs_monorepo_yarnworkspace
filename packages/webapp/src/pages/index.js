@@ -1,5 +1,4 @@
-import Basic from '@monorepo-nextjs/library/components';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -9,8 +8,14 @@ import { setCityName } from '../redux/actions/action';
 const simple = (props) => {
 
     console.log(props);
-    const {cityName, setCityName} = props;
+    const {setCityName} = props;
     const [newCityName, setNewCityName] = useState('')
+    const router = useRouter()
+
+    const handleClick =(cityName)=>{
+        setCityName(cityName)
+        router.push('./city/'+cityName)
+    }
 
     return (
         <>
@@ -20,17 +25,8 @@ const simple = (props) => {
 
                 <div>
                     <input name="cityName"  placeholder="Enter city name" value={newCityName} onChange={(e)=> setNewCityName(e.target.value)} />
-                    <button onClick={() => setCityName(newCityName)} >Search</button>
+                    <button onClick={() => handleClick(newCityName)} >Search</button>
                 </div> 
-
-                
-                <h2> {props.data ?props.data.getCityByName.name : null}</h2>
-                <h2> {props.data ?props.data.getCityByName.country : null}</h2>
-                <h2> {props.data ?props.data.getCityByName.weather.summary.description : null}</h2>
-                <h2> {props.data ?props.data.getCityByName.weather.temperature.actual : null}</h2>
-                
-
-        
             </div>
         </>
     );
