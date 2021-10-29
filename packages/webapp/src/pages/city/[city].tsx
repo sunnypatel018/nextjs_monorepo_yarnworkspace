@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { AnyAction, bindActionCreators, Dispatch } from 'redux';
 import { setCityName } from '../../redux/actions/action';
 import Link from 'next/link';
 
 
 const City = (props) => {
 
-    
+    console.log(props)
     return (
         <>
         
@@ -29,12 +29,12 @@ const City = (props) => {
 
 
 
-const mapStateToProps = state =>{
+const mapStateToProps = (state: { main: { data: any; }; }) =>{
     return{
         data:state.main.data
     }
 }
 
-const mapDispatchToProps =(dispatch)=> bindActionCreators( {setCityName}, dispatch)
+const mapDispatchToProps =(dispatch: Dispatch<AnyAction>)=> bindActionCreators( {setCityName}, dispatch)
 
 export default connect(mapStateToProps,mapDispatchToProps)(City);

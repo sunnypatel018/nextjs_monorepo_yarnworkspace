@@ -1,7 +1,7 @@
 import { put, call, takeEvery, all } from 'redux-saga/effects';
-import { SET_CITY_NAME,SET_CITY_NAME_SUCCESS } from '../type.js';
-import {  setCityNameSuccess } from '../actions/action.js';
-import { fetchData } from '../../pages/api/api.js';
+import { SET_CITY_NAME,SET_CITY_NAME_SUCCESS } from '../type';
+import {  setCityNameSuccess } from '../actions/action';
+import { fetchData } from '../../pages/api/api';
 
 function* setCityNameAsync (action) {
     const data = yield call (fetchData, action.payload)

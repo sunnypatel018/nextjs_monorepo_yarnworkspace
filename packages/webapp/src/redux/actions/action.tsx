@@ -1,4 +1,4 @@
-import * as t from '../type.js';
+import * as t from '../type';
 
 export const setCityName = (cityName) =>({
         type: t.SET_CITY_NAME,

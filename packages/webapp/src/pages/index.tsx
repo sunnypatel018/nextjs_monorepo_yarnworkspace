@@ -1,18 +1,18 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { AnyAction, bindActionCreators, Dispatch } from 'redux';
 import { setCityName } from '../redux/actions/action';
 
 
-const simple = (props) => {
+const simple = (props: { setCityName: any; }) => {
 
     console.log(props);
     const {setCityName} = props;
     const [newCityName, setNewCityName] = useState('')
     const router = useRouter()
 
-    const handleClick =(cityName)=>{
+    const handleClick =(cityName: string)=>{
         setCityName(cityName)
         router.push('./city/'+cityName)
     }
@@ -32,12 +32,12 @@ const simple = (props) => {
     );
 };
 
-const mapStateToProps = state =>{
+const mapStateToProps = (state: { main: { data: any; }; }) =>{
     return{
         data:state.main.data
     }
 }
 
-const mapDispatchToProps =(dispatch)=> bindActionCreators( {setCityName}, dispatch)
+const mapDispatchToProps =(dispatch: Dispatch<AnyAction>)=> bindActionCreators( {setCityName}, dispatch)
 
 export default connect(mapStateToProps,mapDispatchToProps)(simple);

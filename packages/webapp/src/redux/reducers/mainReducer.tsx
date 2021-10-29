@@ -1,4 +1,4 @@
-import * as t from '../type.js';
+import * as t from '../type';
 
 const initialState = {
     
