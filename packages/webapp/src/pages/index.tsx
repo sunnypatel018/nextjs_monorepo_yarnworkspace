@@ -20,17 +20,21 @@ const simple = (props: { setCityName: any; }) => {
 
     return (
         <>
-            <div>
+            {/* <div>
                 <Basic/>
             </div>
-            <div>
-                <h1>Enter the city Name to check the weather:-</h1>
-
-                <div>
-                    <input name="cityName"  placeholder="Enter city name" value={newCityName} onChange={(e)=> setNewCityName(e.target.value)} />
-                    <button onClick={() => handleClick(newCityName)} >Search</button>
-                </div> 
-            </div>
+             */}
+            <div className="container p-4">
+                    <div className="row align-items-start">
+                        <span className="fs-1 fw-bold">Enter the city Name to check the weather :-
+                        </span>
+                    </div>
+                    <div className="col-3">
+                        <input className="form-control mb-3"  name="cityName"  placeholder="Enter city name" value={newCityName} onChange={(e)=> setNewCityName(e.target.value)} />
+                    </div>
+                    <button className="btn btn-primary" onClick={() => handleClick(newCityName)} >Search</button>
+            </div> 
+            
         </>
     );
 };

@@ -9,20 +9,35 @@ const City = (props) => {
     console.log(props)
     return (
         <>
-        
-            <div> 
-                    <h2> {props.data ?props.data.getCityByName.name : null}</h2>
-                    <h2> {props.data ?props.data.getCityByName.country : null}</h2>
-                    <h2> {props.data ?props.data.getCityByName.weather.summary.description : null}</h2>
-                    <h2> {props.data ?props.data.getCityByName.weather.temperature.actual : null}</h2>  
-                    
-            </div>
-            <Link href="/">
-                <h3><a>Home</a></h3>
-            </Link>
-            
+        <div className="container p-4">
 
+                <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                <li className="breadcrumb-item"><a href="/">Home</a></li>
+                <li className="breadcrumb-item active" aria-current="page">City</li>
+                </ol>
+                </nav>
             
+                <table className="table">
+                    <thead>
+                    <tr>
+                    <th scope="col">City</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Temprature</th>
+                    <th scope="col">Summary</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                            <th>{props.data ?props.data.getCityByName.name : null}</th>
+                            <td>{props.data ?props.data.getCityByName.country : null}</td>
+                            <td>{props.data ?props.data.getCityByName.weather.temperature.actual : null}</td>
+                            <td>{props.data ?props.data.getCityByName.weather.summary.description : null}</td>
+                            </tr>
+                    </tbody>
+                    </table>
+
+        </div>           
         </>
     );
 };

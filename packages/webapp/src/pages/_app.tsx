@@ -1,6 +1,6 @@
-// import styles from '../styles/globals.css';
 import { AppProps } from 'next/app';
 import { wrapper } from '../redux/store/store';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App = ({ Component, pageProps }: AppProps) => {
     return (
