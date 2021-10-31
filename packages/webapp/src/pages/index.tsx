@@ -1,3 +1,4 @@
+import Basic from "@monorepo-nextjs/library/components"
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { connect } from 'react-redux';
@@ -19,7 +20,9 @@ const simple = (props: { setCityName: any; }) => {
 
     return (
         <>
-        
+            <div>
+                <Basic/>
+            </div>
             <div>
                 <h1>Enter the city Name to check the weather:-</h1>
 

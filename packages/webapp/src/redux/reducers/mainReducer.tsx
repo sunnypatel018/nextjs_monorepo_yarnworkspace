@@ -4,7 +4,7 @@ const initialState = {
     
 };
 
-const mainReducer = (state = initialState, action) => {
+const mainReducer = (state = initialState, action: { type: any; payload: any; }) => {
     switch (action.type) {
         
         case t.SET_CITY_NAME_SUCCESS:

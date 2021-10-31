@@ -1,6 +1,6 @@
 {
     "name": "@monorepo-nextjs/library",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "index.tsx",
     "license": "MIT"
 }

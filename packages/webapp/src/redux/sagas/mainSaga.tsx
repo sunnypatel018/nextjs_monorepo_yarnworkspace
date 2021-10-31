@@ -3,7 +3,7 @@ import { SET_CITY_NAME,SET_CITY_NAME_SUCCESS } from '../type';
 import {  setCityNameSuccess } from '../actions/action';
 import { fetchData } from '../../pages/api/api';
 
-function* setCityNameAsync (action) {
+function* setCityNameAsync (action: { payload: any; }) {
     const data = yield call (fetchData, action.payload)
     console.log(data)
     yield put(setCityNameSuccess(data));
